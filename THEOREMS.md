@@ -2,10 +2,11 @@
 
 ## [Finite sums](src/Algebra/FiniteSums.agda)
 
-All results hold over a commutative ring `R`.
-Equality `≈` is the ring's setoid equality.
+All identities work in any commutative ring `R` (including finite fields, polynomial rings e.g. numbers module 5).
 
-| Agda theorem and type | Mathematical content | Meaning |
+Equality `≈` is defined in the ring (setoid equality).
+
+| Agda theorem | Mathematical content | Meaning |
 |---|---|---|
 | `sum-cong : ∀ n (f g : Fin n → Carrier) → (∀ i → f i ≈ g i) → sum n f ≈ sum n g` | Congruence | Pointwise equal functions have equal sums. |
 | `sum-zero : ∀ n → sum n (λ _ → 0#) ≈ 0#` | Zero sum | Summing zeros gives zero. |

@@ -10,3 +10,7 @@ The goal: develop reusable mathematics for number-theoretic transforms, cryptogr
 
 See [theorems](THEOREMS.md), [sources](PROVENANCE.md)
 and [planned tutorials](TUTORIALS.md).
+
+```sh
+agda src/Algebra/FiniteSums.agda
+```
