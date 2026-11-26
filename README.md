@@ -89,7 +89,7 @@ with values in a commutative ring.
 |---|---|---|
 | `annihilates-sum` | $(\chi(t)-1)\sum_x\chi(x)=0$ | Character differences annihilate the character sum. |
 | `character-zero` | $\sum_x\chi(x)=0$ | The sum vanishes when the differences have trivial common annihilator. |
-| `gram` | $\sum_k U_x(k)V_y(k)=n\delta_{xy}$ | Orthogonality of reciprocal, separating character families. |
+| `gram` | $\sum_k U_x(k)V_y(k)=m\delta_{xy}$ | Orthogonality of reciprocal, separating character families. |
 
 See: [Conrad]; [Mathlib Orthogonality.lean] `AddChar.expect_eq_ite`; Agda stdlib [CommutativeMonoid.Sum](https://github.com/agda/agda-stdlib/blob/v2.4.1/src/Algebra/Properties/CommutativeMonoid/Sum.agda): `∑-permute`.
 
@@ -140,7 +140,7 @@ See: [Conrad]; Wiki [circular convolution](https://en.wikipedia.org/wiki/Circula
 |---|---|---|
 | `primitive-inversion` | $LK=nI$ | Fourier inversion from a primitive additive character and regularity of nonzero coefficients. |
 | `primitive-duality` | $K^{-1}=n^{-1}L$ | Two-sided inversion when the group order is invertible. |
-| `filter-count` | Fourier reconstruction | Recover the multiplicity of each element in a finite collection. |
+| `filter-count` | Fourier reconstruction | Recover the multiplicity of each element in a coefficient ring. |
 | `absent`, `present` | Membership indicator | Recover set membership from its spectrum, assuming an injective enumeration for `present`. |
 | `vanishes`, `survives` | Coset character sums | Only characters trivial on the subgroup survive, when nontrivial restrictions satisfy separation. |
 
