@@ -17,4 +17,18 @@ This is what `Quotient.average` proves whenever the quotient
 character table satisfies column separation and its order
 is invertible in the coefficient ring.
 
-[Agda proofs](../src/Fourier/QuotientFilter.agda).
+Proofs: [Fourier/QuotientFilter.agda](../src/Fourier/QuotientFilter.agda).
+
+## Point filters
+
+For the identity quotient, every fiber contains exactly
+one element.
+
+The coset indicator therefore becomes the Kronecker delta:
+
+$$
+\mathbf{1}_{\pi(x)=\pi(y)}=\delta_{xy}.
+$$
+
+The point filter is a special case of the quotient filter,
+not a separate theorem requiring an independent proof.

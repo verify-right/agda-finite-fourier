@@ -50,4 +50,4 @@ independent scalar inversions.
 
 This is what `synthesize-inverse` proves.
 
-[Agda proofs](../src/Fourier/Algebra.agda).
+Proofs: [Fourier/Algebra.agda](../src/Fourier/Algebra.agda).

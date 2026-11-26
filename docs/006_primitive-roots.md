@@ -38,4 +38,4 @@ The transform loses information and cannot be inverted.
 
 A root of unity must have the correct order.
 
-[Agda proofs](../src/Fourier/Cyclic.agda).
+Proofs: [Fourier/Cyclic.agda](../src/Fourier/Cyclic.agda).

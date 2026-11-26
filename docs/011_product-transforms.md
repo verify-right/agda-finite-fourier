@@ -47,4 +47,4 @@ Modulo 17, the resulting vector is $(6,15,13,0)$.
 The theorem `Tables.factorization` proves that successive
 axis transforms agree with the full product transform.
 
-[Agda proofs](../src/Fourier/ProductTable.agda).
+Proofs: [Fourier/ProductTable.agda](../src/Fourier/ProductTable.agda).

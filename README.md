@@ -30,7 +30,7 @@ Agda stdlib wrappers:
 | `sum-mulʳ : ∀ n c (f : Fin n → Carrier) → sum n (λ i → f i * c) ≈ sum n f * c` | Right linearity | The corresponding right multiplication law. |
 | `sum-swap : ∀ m n (f : Fin m → Fin n → Carrier) → sum m (λ i → sum n (f i)) ≈ sum n (λ j → sum m (λ i → f i j))` | Exchange of finite sums | Rows and columns can be summed in either order. |
 
-References: [Conrad]; [OpenAI FourierIdentities.lean] `Spectral.freq_congr`, `freq_add`, `freq_scale` and `freq_back`.
+See: [Conrad]; [OpenAI FourierIdentities.lean] `Spectral.freq_congr`, `freq_add`, `freq_scale` and `freq_back`.
 
 ## Orthogonality and Fourier inversion
 
@@ -43,7 +43,7 @@ Inversion argument generalized from complex numbers to commutative rings, with o
 | [`unnormalized-inversion`](src/Fourier/Inversion.agda) | $LK=sI \implies L(Kf)=sf$| Applying the forward and backward transforms recovers the original input multiplied by a constant. |
 | [`normalized-inversion`](src/Fourier/Inversion.agda) | $s^{-1}L(Kf)=f$| Removing the scaling factor recovers the original input exactly. |
 
-References: [Conrad]; [OpenAI FourierIdentities.lean] `Spectral.orth`, `freq_back` and `freq_inv`;  [Mathlib Orthogonality.lean] `AddChar.expect_eq_ite`.
+See: [Conrad]; [OpenAI FourierIdentities.lean] `Spectral.orth`, `freq_back` and `freq_inv`;  [Mathlib Orthogonality.lean] `AddChar.expect_eq_ite`.
 
 ## Convolution and two-point Fourier transform
 
@@ -65,7 +65,7 @@ on the cyclic group of order two.
 | `inversion` | $2^{-1}K(Kf)=f$ | Exact recovery when 2 is invertible. |
 | `convolution-theorem` | $\widehat{f*g}=\hat f\cdot\hat g$ | XOR [convolution](https://en.wikipedia.org/wiki/Convolution_theorem) becomes pointwise multiplication. |
 
-References: [Conrad] exercise 4.10(b) p. 18; [OpenAI FourierIdentities.lean] `Spectral.freq_cyclic`
+See: [Conrad] exercise 4.10(b) p. 18; [OpenAI FourierIdentities.lean] `Spectral.freq_cyclic`
 
 ## Number-theoretic transforms
 
@@ -78,7 +78,7 @@ References: [Conrad] exercise 4.10(b) p. 18; [OpenAI FourierIdentities.lean] `Sp
 | `product` | Polynomial multiplication using an NTT. |
 | `nonorthogonal-sum` | Counterexample to orthogonality modulo 15. |
 
-References: [Pollard].
+See: [Pollard].
 
 ## Character orthogonality
 
@@ -91,7 +91,7 @@ with values in a commutative ring.
 | `character-zero` | $\sum_x\chi(x)=0$ | The sum vanishes when the differences have trivial common annihilator. |
 | `gram` | $\sum_k U_x(k)V_y(k)=n\delta_{xy}$ | Orthogonality of reciprocal, separating character families. |
 
-References: [Conrad]; [Mathlib Orthogonality.lean] `AddChar.expect_eq_ite`; Agda stdlib [CommutativeMonoid.Sum](https://github.com/agda/agda-stdlib/blob/v2.4.1/src/Algebra/Properties/CommutativeMonoid/Sum.agda): `∑-permute`.
+See: [Conrad]; [Mathlib Orthogonality.lean] `AddChar.expect_eq_ite`; Agda stdlib [CommutativeMonoid.Sum](https://github.com/agda/agda-stdlib/blob/v2.4.1/src/Algebra/Properties/CommutativeMonoid/Sum.agda): `∑-permute`.
 
 ## Bicharacters and Fourier equivalence
 
@@ -105,7 +105,7 @@ References: [Conrad]; [Mathlib Orthogonality.lean] `AddChar.expect_eq_ite`; Agda
 | `matrix-linear` | Linearity | The transform preserves addition and scalar multiplication. |
 | `equivalence` | $K^{-1}=n^{-1}L$ | Mutually inverse linear transforms when [both character](https://en.wikipedia.org/wiki/Bicharacter) families separate and the group order is invertible. |
 
-References: [Conrad]; [Mathlib ZMod.lean].
+See: [Conrad]; [Mathlib ZMod.lean].
 
 ## Cyclic Fourier inversion
 
@@ -118,7 +118,7 @@ over integral domains containing a primitive root of unity.
 | `Root.injective` | $q^i=q^j\implies i=j$ | Distinct indices give distinct powers of a [primitive root](https://en.wikipedia.org/wiki/Root_of_unity). |
 | `Root.cyclic-inversion` | $K^{-1}=n^{-1}L$ | Fourier inversion when the length is invertible. |
 
-References: [Pollard]; [Isabelle NTT]; [Mathlib NTT PR #41924]
+See: [Pollard]; [Isabelle NTT]; [Mathlib NTT PR #41924]
 
 ## Group convolution
 
@@ -129,7 +129,7 @@ References: [Pollard]; [Isabelle NTT]; [Mathlib NTT PR #41924]
 | `fiber-sum` | $(f*g)(z)=\sum_x f(x)g(z-x)$ | Reduces convolution to a single sum. |
 | `convolution-transform` | $\widehat{f*g}=\hat f\cdot\hat g$ | Fourier transforms turn group convolution into pointwise multiplication. |
 
-References: [Conrad]; Wiki [circular convolution](https://en.wikipedia.org/wiki/Circular_convolution); [OpenAI FourierIdentities.lean]: `Spectral.freq_cyclic`.
+See: [Conrad]; Wiki [circular convolution](https://en.wikipedia.org/wiki/Circular_convolution); [OpenAI FourierIdentities.lean]: `Spectral.freq_cyclic`.
 
 ## Additive characters and character filters
 
@@ -144,7 +144,7 @@ References: [Conrad]; Wiki [circular convolution](https://en.wikipedia.org/wiki/
 | `absent`, `present` | Membership indicator | Recover set membership from its spectrum, assuming an injective enumeration for `present`. |
 | `vanishes`, `survives` | Coset character sums | Only characters trivial on the subgroup survive, when nontrivial restrictions satisfy separation. |
 
-References: [OpenAI FiniteFourier.lean] `transform_inversion`; [Mathlib AddCharacter.lean] `sum_mulShift`; [Compressed GRH FiniteFourier.lean] `sum_addChar_dotProduct`, `sum_addChar_trace_mul`.
+See: [OpenAI FiniteFourier.lean] `transform_inversion`; [Mathlib AddCharacter.lean] `sum_mulShift`; [Compressed GRH FiniteFourier.lean] `sum_addChar_dotProduct`, `sum_addChar_trace_mul`.
 
 ## Fourier algebra isomorphism
 
@@ -158,7 +158,7 @@ References: [OpenAI FiniteFourier.lean] `transform_inversion`; [Mathlib AddChara
 
 Requires a separated bicharacter and an invertible group order.
 
-References: [Nicholson]; Agda stdlib: `Algebra.Construct.Pointwise`, `Algebra.Morphism.RingMonomorphism`.
+See: [Nicholson]; Agda stdlib: `Algebra.Construct.Pointwise`, `Algebra.Morphism.RingMonomorphism`.
 
 ## Character completeness
 
@@ -209,7 +209,7 @@ a proof that the character agrees with that row.
 | `Tables.complete` | Complete character tables on both axes give a complete product table. |
 | `Tables.factorization` | The product Fourier transform equals successive transforms along each axis. |
 
-References: [Conrad], [Good], [OpenAI ChineseRemainder.lean]: `Grove.gale_tide`, `Grove.graft_ford`.
+See: [Conrad], [Good], [OpenAI ChineseRemainder.lean]: `Grove.gale_tide`, `Grove.graft_ford`.
 
 The product factorization does not require coprimality.
 The Good–Thomas FFT additionally requires a CRT reindexing
@@ -235,6 +235,10 @@ using an explicit quotient and section.
 
 Related to [Alpöge–Claude ChBalance.lean] and [Conrad].
 
+The point filter in [Filters.agda](src/Fourier/Filters.agda)
+is the special case of `scaled-coset` where the quotient
+map is the identity.
+
 ## References
 
 ### Mathematical literature
@@ -247,19 +251,20 @@ Related to [Alpöge–Claude ChBalance.lean] and [Conrad].
 
 ### Related formalizations
 
-- [OpenAI FourierIdentities.lean] — inversion and convolution.
-- [OpenAI ChineseRemainder.lean] — product transforms and CRT.
-- [OpenAI FiniteFourier.lean] — primitive additive characters.
-- [OpenAI RayOrthogonality.lean] — quotient character filters.
-- [Alpöge–Claude ChBalance.lean] — arithmetic character sums.
-- [Compressed GRH FiniteFourier.lean] — additive character orthogonality.
-- [Mathlib Orthogonality.lean] — character orthogonality.
-- [Mathlib Duality.lean] — finite abelian group duality.
-- [Mathlib MulChar Duality.lean] — multiplicative character duality.
-- [Mathlib AddCharacter.lean] — primitive additive characters.
-- [Mathlib ZMod.lean] — cyclic Fourier transforms.
-- [Isabelle NTT] — verified number-theoretic transforms.
-- [When Agda met Vampire] — FFT formalization in Agda.
+- [OpenAI FourierIdentities.lean] - inversion and convolution.
+- [OpenAI ChineseRemainder.lean] - product transforms and CRT.
+- [OpenAI FiniteFourier.lean] - primitive additive characters.
+- [OpenAI RayOrthogonality.lean] - quotient character filters.
+- [Alpöge–Claude ChBalance.lean] - arithmetic character sums.
+- [Compressed GRH FiniteFourier.lean] - additive character orthogonality.
+- [Compressed GRH LocalHomUnit.lean]
+- [Mathlib Orthogonality.lean] - character orthogonality.
+- [Mathlib Duality.lean] - finite abelian group duality.
+- [Mathlib MulChar Duality.lean] - multiplicative character duality.
+- [Mathlib AddCharacter.lean] - primitive additive characters.
+- [Mathlib ZMod.lean] - cyclic Fourier transforms.
+- [Isabelle NTT] - verified number-theoretic transforms.
+- [When Agda met Vampire] - FFT formalization in Agda.
 
 [Conrad]: https://kconrad.math.uconn.edu/blurbs/grouptheory/charthy.pdf
 [Nicholson]: https://doi.org/10.1016/S0022-0000(71)80014-4
@@ -271,6 +276,7 @@ Related to [Alpöge–Claude ChBalance.lean] and [Conrad].
 [OpenAI FiniteFourier.lean]: https://github.com/openai/math/blob/4eaee87548250b2682affda7d05d947c05554bae/lean/OAI/NumberTheory/DirichletL/FiniteFourier.lean
 [OpenAI RayOrthogonality.lean]: https://github.com/openai/math/blob/4eaee87548250b2682affda7d05d947c05554bae/lean/OAI/NumberTheory/DirichletL/RayOrthogonality.lean
 [Alpöge–Claude ChBalance.lean]: https://github.com/CocoSgt/riemann-hypothesis-lean/blob/7cbf7a0c32fca1badf05931879a37c3f8a2b03b4/src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/ChBalance.lean
+[Compressed GRH LocalHomUnit.lean]: https://github.com/lsernau/grh-lean/blob/72fead102f663d5c7a407964a13dc0cf9d977207/grh-compact/src/Lib/Weil/GaussSum/LocalHomUnit.lean
 [Compressed GRH FiniteFourier.lean]: https://github.com/lsernau/grh-lean/blob/72fead102f663d5c7a407964a13dc0cf9d977207/grh/src/Lib/General/Analysis/FiniteFourier.lean
 [Mathlib Orthogonality.lean]: https://github.com/leanprover-community/mathlib4/blob/0df444a360eaa60ab8c11dca51a86af692955474/Mathlib/Analysis/Fourier/FiniteAbelian/Orthogonality.lean
 [Mathlib Duality.lean]: https://github.com/leanprover-community/mathlib4/blob/0df444a360eaa60ab8c11dca51a86af692955474/Mathlib/GroupTheory/FiniteAbelian/Duality.lean

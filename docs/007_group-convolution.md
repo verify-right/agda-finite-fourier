@@ -45,4 +45,4 @@ Cyclic convolution uses $x^n-1$.
 ML-KEM and ML-DSA instead use negacyclic convolution
 modulo $x^n+1$.
 
-[Agda proofs](../src/Fourier/GroupConvolution.agda).
+Proofs: [Fourier/GroupConvolution.agda](../src/Fourier/GroupConvolution.agda).

@@ -35,4 +35,4 @@ Uniqueness guarantees that exactly one index matches.
 `RootDual.enumerate` returns the index together with
 a proof that the character agrees with that row.
 
-[Agda proofs](../src/Fourier/CyclicDual.agda).
+Proofs: [Fourier/CyclicDual.agda](../src/Fourier/CyclicDual.agda).

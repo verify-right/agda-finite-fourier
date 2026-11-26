@@ -49,4 +49,4 @@ restrictions to subgroups.
 This cancellation is used in number theory, harmonic
 analysis and coding theory.
 
-[Agda proofs](../src/Fourier/Filters.agda).
+Proofs [Fourier/Filters.agda](../src/Fourier/Filters.agda).
