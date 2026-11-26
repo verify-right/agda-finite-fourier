@@ -152,3 +152,21 @@ References:
 - Keith Conrad, [Characters of Finite Abelian Groups](https://kconrad.math.uconn.edu/blurbs/grouptheory/charthy.pdf).
 - [Circular convolution](https://en.wikipedia.org/wiki/Circular_convolution).
 - openai/math, [FourierIdentities.lean](https://github.com/openai/math/blob/4eaee87548250b2682affda7d05d947c05554bae/lean/OAI/Computability/FourierTransform/FourierIdentities.lean): `Spectral.freq_cyclic`.
+
+## Additive characters and character filters
+
+[AdditiveKernel.agda](src/Fourier/AdditiveKernel.agda),
+[Filters.agda](src/Fourier/Filters.agda)
+
+| Agda theorem | Mathematical content | Meaning |
+|---|---|---|
+| `primitive-inversion` | $LK=nI$ | Fourier inversion from a primitive additive character and regularity of nonzero coefficients. |
+| `primitive-duality` | $K^{-1}=n^{-1}L$ | Two-sided inversion when the group order is invertible. |
+| `filter-count` | Fourier reconstruction | Recover the multiplicity of each element in a finite collection. |
+| `absent`, `present` | Membership indicator | Recover set membership from its spectrum, assuming an injective enumeration for `present`. |
+| `vanishes`, `survives` | Coset character sums | Only characters trivial on the subgroup survive, when nontrivial restrictions satisfy separation. |
+
+References:
+- openai/math, [FiniteFourier.lean](https://github.com/openai/math/blob/4eaee87548250b2682affda7d05d947c05554bae/lean/OAI/NumberTheory/DirichletL/FiniteFourier.lean): `transform_inversion`.
+- Mathlib, [AddCharacter.lean](https://github.com/leanprover-community/mathlib4/blob/0df444a360eaa60ab8c11dca51a86af692955474/Mathlib/NumberTheory/LegendreSymbol/AddCharacter.lean): `sum_mulShift`.
+- grh-lean, [FiniteFourier.lean](https://github.com/lsernau/grh-lean/blob/72fead102f663d5c7a407964a13dc0cf9d977207/grh/src/Lib/General/Analysis/FiniteFourier.lean): `sum_addChar_dotProduct`, `sum_addChar_trace_mul`.

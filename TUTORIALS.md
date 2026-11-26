@@ -7,3 +7,4 @@
 - [Bicharacters and Fourier equivalence](docs/005_bicharacters.md)
 - [Primitive roots and Fourier inversion](docs/006_primitive-roots.md)
 - [Cyclic convolution](docs/007_group-convolution.md)
+- [Character filters](docs/008_character-filters.md)
