@@ -11,7 +11,7 @@ import Data.Fin.Properties as FP
 import Data.Nat.Properties as NP
 import Data.Nat.DivMod as D
 import Algebra.Properties.Monoid.Mult *-monoid as Pow
-import FinitePowerOrder *-monoid as O
+import Algebra.FinitePowerOrder *-monoid as O
 open import Fourier.Characters R
 open import Fourier.Pairing R
 open import Fourier.Duality R
