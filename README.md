@@ -234,7 +234,7 @@ map is the identity.
 - P. J. [Nicholson], *Algebraic Theory of Finite Fourier Transforms* (1971), Theorem 3.1.
 - J. M. [Pollard], *The Fast Fourier Transform in a Finite Field* (1971).
 - I. J. [Good], *The Interaction Algorithm and Practical Fourier Analysis* (1958).
-- [Milne], *Class Field Theory*.
+- J.S. [Milne], *Class Field Theory*.
 
 ### Related formalizations
 
@@ -249,7 +249,7 @@ map is the identity.
 - [Mathlib MulChar Duality.lean] - multiplicative character duality.
 - [Mathlib AddCharacter.lean] - primitive additive characters.
 - [Mathlib ZMod.lean] - cyclic Fourier transforms.
-- [Isabelle NTT] - verified number-theoretic transforms.
+- [Isabelle NTT], Thomas Ammer and Katharina Kreuzer - verified number-theoretic transforms.
 - [When Agda met Vampire] - FFT formalization in Agda.
 
 [Conrad]: https://kconrad.math.uconn.edu/blurbs/grouptheory/charthy.pdf
