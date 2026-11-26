@@ -1,5 +1,5 @@
 # Tutorials
 
-- [ ] **Finite sums and the Kronecker delta.** Derive finite summation
-  laws and illustrate delta selection using a small vector.
-- [ ] **Fourier inversion.** Explain character cancellation, orthogonality and exact reconstruction using a two-point transform.
+- [Finite sums and the Kronecker delta](docs/001_finite-sums.md)
+- [Fourier inversion and convolution](docs/002_fourier-inversion.md)
+- [Number-theoretic transforms and polynomial multiplication](docs/003_ntt.md)
