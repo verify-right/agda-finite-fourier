@@ -144,7 +144,7 @@ See: [Conrad]; Wiki [circular convolution](https://en.wikipedia.org/wiki/Circula
 | `absent`, `present` | Membership indicator | Recover set membership from its spectrum, assuming an injective enumeration for `present`. |
 | `vanishes`, `survives` | Coset character sums | Only characters trivial on the subgroup survive, when nontrivial restrictions satisfy separation. |
 
-See: [OpenAI FiniteFourier.lean] `transform_inversion`; [Mathlib AddCharacter.lean] `sum_mulShift`; [Compressed GRH FiniteFourier.lean] `sum_addChar_dotProduct`, `sum_addChar_trace_mul`.
+See: [OpenAI FiniteFourier.lean] `transform_inversion`; [Mathlib AddCharacter.lean] `sum_mulShift`; [Compressed GRH LocalHomUnit.lean] `sum_addChar_dotProduct`, `sum_addChar_trace_mul`.
 
 ## Fourier algebra isomorphism
 
@@ -162,30 +162,17 @@ See: [Nicholson]; Agda stdlib: `Algebra.Construct.Pointwise`, `Algebra.Morphism.
 
 ## Character completeness
 
-Consider the cyclic group of order four over $\mathbb{F}_{17}$.
+Every character occurs in an injective Fourier table over
+a nontrivial integral domain with decidable equality.
 
-Every character is determined by its value at the generator 1:
-
-$$
-\chi(x)=\chi(1)^x.
-$$
-
-Since adding 1 four times gives 0,
-
-$$
-\chi(1)^4=1.
-$$
-
-There are exactly four possible values:
-
-| $\chi(1)$ | Character values |
+| Agda theorem | Meaning |
 |---|---|
-| 1 | $(1,1,1,1)$ |
-| 4 | $(1,4,16,13)$ |
-| 16 | $(1,16,1,16)$ |
-| 13 | $(1,13,16,4)$ |
+| [`Basis.complete`](src/Fourier/Complete.agda) | Constructively find the index of any character in the table. |
+| [`RootDual.unique`](src/Fourier/CyclicDual.agda) | Distinct indices define distinct cyclic characters. |
+| [`RootDual.enumerate`](src/Fourier/CyclicDual.agda) | Enumerate all cyclic characters using a primitive root of unity, assuming the group order is invertible. |
 
-These are precisely the rows of our Fourier matrix.
+See: [Conrad]; [Mathlib Duality.lean]
+`CommGroup.card_monoidHom_of_hasEnoughRootsOfUnity`.
 
 ## Constructive enumeration
 
@@ -256,8 +243,7 @@ map is the identity.
 - [OpenAI FiniteFourier.lean] - primitive additive characters.
 - [OpenAI RayOrthogonality.lean] - quotient character filters.
 - [Alpöge–Claude ChBalance.lean] - arithmetic character sums.
-- [Compressed GRH FiniteFourier.lean] - additive character orthogonality.
-- [Compressed GRH LocalHomUnit.lean]
+- [Compressed GRH LocalHomUnit.lean] - additive character orthogonality and matrix Fourier inversion.
 - [Mathlib Orthogonality.lean] - character orthogonality.
 - [Mathlib Duality.lean] - finite abelian group duality.
 - [Mathlib MulChar Duality.lean] - multiplicative character duality.
@@ -277,7 +263,6 @@ map is the identity.
 [OpenAI RayOrthogonality.lean]: https://github.com/openai/math/blob/4eaee87548250b2682affda7d05d947c05554bae/lean/OAI/NumberTheory/DirichletL/RayOrthogonality.lean
 [Alpöge–Claude ChBalance.lean]: https://github.com/CocoSgt/riemann-hypothesis-lean/blob/7cbf7a0c32fca1badf05931879a37c3f8a2b03b4/src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/ChBalance.lean
 [Compressed GRH LocalHomUnit.lean]: https://github.com/lsernau/grh-lean/blob/72fead102f663d5c7a407964a13dc0cf9d977207/grh-compact/src/Lib/Weil/GaussSum/LocalHomUnit.lean
-[Compressed GRH FiniteFourier.lean]: https://github.com/lsernau/grh-lean/blob/72fead102f663d5c7a407964a13dc0cf9d977207/grh/src/Lib/General/Analysis/FiniteFourier.lean
 [Mathlib Orthogonality.lean]: https://github.com/leanprover-community/mathlib4/blob/0df444a360eaa60ab8c11dca51a86af692955474/Mathlib/Analysis/Fourier/FiniteAbelian/Orthogonality.lean
 [Mathlib Duality.lean]: https://github.com/leanprover-community/mathlib4/blob/0df444a360eaa60ab8c11dca51a86af692955474/Mathlib/GroupTheory/FiniteAbelian/Duality.lean
 [Mathlib MulChar Duality.lean]: https://github.com/leanprover-community/mathlib4/blob/0df444a360eaa60ab8c11dca51a86af692955474/Mathlib/NumberTheory/MulChar/Duality.lean
