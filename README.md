@@ -235,6 +235,26 @@ The product factorization does not require coprimality.
 The Good–Thomas FFT additionally requires a CRT reindexing
 between cyclic and product coordinates.
 
+## Quotient characters
+
+[QuotientFilter.agda](src/Fourier/QuotientFilter.agda)
+
+A character trivial on the kernel of a quotient map
+factors uniquely through that quotient.
+
+| Theorem | Result |
+|---|---|
+| `Descend.factors`, `Descend.unique` | Universal property of character descent. |
+| `all-trivial`, `distinct-pulls` | Complete, distinct enumeration of characters trivial on the kernel. |
+| `average` | Character average gives the kernel indicator. |
+| `scaled-coset` | Character sum detects membership in a coset. |
+
+Constructive counterpart of [OpenAI RayOrthogonality.lean],
+`sum_characters_unit` and `average_characters`,
+using an explicit quotient and section.
+
+Related to [Alpöge–Claude ChBalance.lean] and [Conrad].
+
 ## References
 
 ### Mathematical literature
