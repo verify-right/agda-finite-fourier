@@ -53,6 +53,15 @@ module Quotient {m n} (G : Group m) (Q D : Group n)
     factors : ∀ x → value c x ≈ value (pull descended) x
     factors x = constant x (s (π x)) (E.sym (section-law (π x)))
 
+    unique : ∀ (d : Character Q) →
+      (∀ x → value c x ≈ value (pull d) x) →
+      ∀ a → value descended a ≈ value d a
+    unique d factor a =
+      E.subst
+        (λ q → value c (s a) ≈ value d q)
+        (section-law a)
+        (factor (s a))
+
   all-trivial : (∀ d → Σ _ (λ k → ∀ a → value d a ≈ K k a)) →
     ∀ c → Trivial c → Σ _ (λ k → ∀ x → value c x ≈ K k (π x))
   all-trivial complete c triv with complete (Descend.descended c triv)
