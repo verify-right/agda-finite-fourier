@@ -138,3 +138,17 @@ References:
 - Isabelle AFP, [Number Theoretic Transform](https://isa-afp.org/entries/Number_Theoretic_Transform.html).
 - Mathlib, [Number-theoretic transform PR #41924](https://github.com/leanprover-community/mathlib4/pull/41924).
 - [Primitive roots of unity](https://en.wikipedia.org/wiki/Root_of_unity).
+
+## Group convolution
+
+[GroupConvolution.agda](src/Fourier/GroupConvolution.agda)
+
+| Agda theorem | Mathematical content | Meaning |
+|---|---|---|
+| `fiber-sum` | $(f*g)(z)=\sum_x f(x)g(z-x)$ | Reduces convolution to a single sum. |
+| `convolution-transform` | $\widehat{f*g}=\hat f\cdot\hat g$ | Fourier transforms turn group convolution into pointwise multiplication. |
+
+References:
+- Keith Conrad, [Characters of Finite Abelian Groups](https://kconrad.math.uconn.edu/blurbs/grouptheory/charthy.pdf).
+- [Circular convolution](https://en.wikipedia.org/wiki/Circular_convolution).
+- openai/math, [FourierIdentities.lean](https://github.com/openai/math/blob/4eaee87548250b2682affda7d05d947c05554bae/lean/OAI/Computability/FourierTransform/FourierIdentities.lean): `Spectral.freq_cyclic`.
