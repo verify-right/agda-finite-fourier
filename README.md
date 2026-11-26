@@ -226,3 +226,22 @@ Uniqueness guarantees that exactly one index matches.
 a proof that the character agrees with that row.
 
 [Agda proofs](../src/Fourier/CyclicDual.agda).
+
+## Product-group Fourier transforms
+
+[ProductTable.agda](src/Fourier/ProductTable.agda)
+
+| Agda theorem | Mathematical content |
+|---|---|
+| `Restrict.factors` | Every character on a product group factors into characters on its two axes. |
+| `Tables.complete` | Complete character tables on both axes give a complete product table. |
+| `Tables.factorization` | The product Fourier transform equals successive transforms along each axis. |
+
+References:
+- Keith Conrad, [Characters of Finite Abelian Groups](https://kconrad.math.uconn.edu/blurbs/grouptheory/charthy.pdf).
+- I. J. Good, [The Interaction Algorithm and Practical Fourier Analysis](https://doi.org/10.1111/j.2517-6161.1958.tb00300.x), 1958.
+- openai/math, [ChineseRemainder.lean](https://github.com/openai/math/blob/4eaee87548250b2682affda7d05d947c05554bae/lean/OAI/Computability/FourierTransform/ChineseRemainder.lean): `Grove.gale_tide`, `Grove.graft_ford`.
+
+The product factorization does not require coprimality.
+The Good–Thomas FFT additionally requires a CRT reindexing
+between cyclic and product coordinates.
