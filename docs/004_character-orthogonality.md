@@ -75,4 +75,4 @@ References:
 - [Zero divisor](https://en.wikipedia.org/wiki/Zero_divisor)
 - Keith Conrad, [Characters of Finite Abelian Groups](https://kconrad.math.uconn.edu/blurbs/grouptheory/charthy.pdf).
 
-[Agda proofs](../src/Fourier/Characters.agda).
+Proofs: [Fourier/Characters.agda](../src/Fourier/Characters.agda).

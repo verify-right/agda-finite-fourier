@@ -15,6 +15,7 @@ open import Fourier.Characters R
 open import Fourier.Enumeration
 open import Fourier.Pairing R
 open import Fourier.Inversion R
+import Fourier.QuotientFilter R as Q
 
 open import Fourier.Duality R using (Linear; matrix-linear)
 import Algebra.Properties.CommutativeSemigroup *-commutativeSemigroup as M
@@ -23,11 +24,13 @@ module Filter {n} (H G : Group n) (B : Bicharacter H G) where
   open Table H G B
 
   -- c is the outside normalization; w is its value times the FULL dual size.
+  module Id = Q.Quotient G G H
+    (λ x → x) (λ x → x)
+    (λ _ → E.refl) E.refl (λ _ _ → E.refl) B
+
   point-filter : Columns → ∀ c w → c * order n ≈ w → ∀ x y →
     c * sum n (λ k → L x k * K k y) ≈ w * delta x y
-  point-filter cols c w factor x y = trans
-    (*-cong refl (OrthogonalPair.orthogonal (left-gram cols) x y))
-    (trans (sym (*-assoc c (order n) (delta x y))) (*-cong factor refl))
+  point-filter = Id.scaled-coset
 
   module OnSet {m} (embed : Fin m → Fin n) where
     spectrum : Fin n → Carrier

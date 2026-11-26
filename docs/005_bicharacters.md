@@ -58,4 +58,4 @@ This is what `Dual.equivalence` proves, provided both
 character families satisfy the separation conditions
 and the group order is invertible.
 
-[Agda proofs](../src/Fourier/Duality.agda).
+Proofs: [Fourier/Duality.agda](../src/Fourier/Duality.agda).
