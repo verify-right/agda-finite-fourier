@@ -8,7 +8,7 @@ The goal: develop reusable mathematics for number-theoretic transforms, cryptogr
 
 - Finite sums, linearity, exchange of summation and Kronecker delta.
 
-See [theorems](THEOREMS.md), [sources](PROVENANCE.md)
+See [theorems](THEOREMS.md), [sources](REFERENCES.md)
 and [planned tutorials](TUTORIALS.md).
 
 ```sh
