@@ -170,3 +170,20 @@ References:
 - openai/math, [FiniteFourier.lean](https://github.com/openai/math/blob/4eaee87548250b2682affda7d05d947c05554bae/lean/OAI/NumberTheory/DirichletL/FiniteFourier.lean): `transform_inversion`.
 - Mathlib, [AddCharacter.lean](https://github.com/leanprover-community/mathlib4/blob/0df444a360eaa60ab8c11dca51a86af692955474/Mathlib/NumberTheory/LegendreSymbol/AddCharacter.lean): `sum_mulShift`.
 - grh-lean, [FiniteFourier.lean](https://github.com/lsernau/grh-lean/blob/72fead102f663d5c7a407964a13dc0cf9d977207/grh/src/Lib/General/Analysis/FiniteFourier.lean): `sum_addChar_dotProduct`, `sum_addChar_trace_mul`.
+
+## Fourier algebra isomorphism
+
+[Algebra.agda](src/Fourier/Algebra.agda)
+
+| Agda theorem | Meaning |
+|---|---|
+| `fourier-isomorphism : Hom.IsRingIsomorphism to` | Fourier transformation is a ring isomorphism between convolution and pointwise multiplication. |
+| `inverse-coordinates` | A convolution inverse becomes a pointwise reciprocal. |
+| `synthesize-inverse` | Construct a convolution inverse from pointwise reciprocals. |
+
+Requires a separated bicharacter and an invertible group order.
+
+References:
+- P. J. Nicholson, [Algebraic Theory of Finite Fourier Transforms](https://doi.org/10.1016/S0022-0000(71)80014-4), 1971, Theorem 3.1.
+- Agda stdlib: `Algebra.Construct.Pointwise`,
+  `Algebra.Morphism.RingMonomorphism`.
