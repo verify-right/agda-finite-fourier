@@ -1,5 +1,5 @@
 {-# OPTIONS --safe --without-K #-}
-open import Algebra.Bundles using (CommutativeRing)
+open import Algebra.Bundles using (CommutativeRing; RawRing)
 open import Level using (0ℓ)
 module Fourier.Algebra (R : CommutativeRing 0ℓ 0ℓ) where
 
@@ -12,8 +12,6 @@ open import Fourier.Convolution R
 open import Fourier.Characters R using (order)
 open import Fourier.Pairing R
 open import Fourier.Duality R
-open import Relation.Binary.Structures using (IsEquivalence)
-import Algebra.Structures as S
 
 module Split {n} (H G : Group n) (B : Bicharacter H G) where
   open Table H G B
@@ -31,25 +29,10 @@ module Split {n} (H G : Group n) (B : Bicharacter H G) where
   I _ = 1#
   E i = delta i (Group.e G)
 
-  eqv : IsEquivalence _∼_
-  eqv = record { refl = λ i → refl ; sym = λ p i → sym (p i)
-    ; trans = λ p q i → trans (p i) (q i) }
-
-  additive : S.IsAbelianGroup _∼_ _⊞_ O neg
-  additive = record { comm = λ f g i → +-comm (f i) (g i) ; isGroup = record
-    { ⁻¹-cong = λ p i → -‿cong (p i)
-    ; inverse = (λ f i → -‿inverseˡ (f i)) , (λ f i → -‿inverseʳ (f i))
-    ; isMonoid = record { identity = (λ f i → +-identityˡ (f i)) , (λ f i → +-identityʳ (f i))
-      ; isSemigroup = record { assoc = λ f g h i → +-assoc (f i) (g i) (h i)
-        ; isMagma = record { isEquivalence = eqv ; ∙-cong = λ p q i → +-cong (p i) (q i) } } } } }
+  import Algebra.Construct.Pointwise (Fin n) as PW
 
   pointwise : CommutativeRing 0ℓ 0ℓ
-  pointwise = record { _≈_ = _∼_ ; _+_ = _⊞_ ; _*_ = _⊙_ ; -_ = neg ; 0# = O ; 1# = I
-    ; isCommutativeRing = record { *-comm = λ f g i → *-comm (f i) (g i)
-      ; isRing = record { +-isAbelianGroup = additive ; *-cong = λ p q i → *-cong (p i) (q i)
-        ; *-assoc = λ f g h i → *-assoc (f i) (g i) (h i)
-        ; *-identity = (λ f i → *-identityˡ (f i)) , (λ f i → *-identityʳ (f i))
-        ; distrib = (λ f g h i → distribˡ (f i) (g i) (h i)) , (λ f g h i → distribʳ (f i) (g i) (h i)) } } }
+  pointwise = PW.commutativeRing R
 
   module Iso (cols : Columns) (rows : Rows) (u : Carrier) (unit : u * order n ≈ 1#) where
     linear = Dual.equivalence H G B cols rows u unit
@@ -68,47 +51,20 @@ module Split {n} (H G : Group n) (B : Bicharacter H G) where
     inverse-one : from I ∼ E
     inverse-one = reflect _ _ (λ i → trans (right I i) (sym (one i)))
 
-    -- Interpret expressions in the source and at a single frequency.
-    data Expr : Set where
-      var : A → Expr
-      idₘ : Expr
-      plus times : Expr → Expr → Expr
-    eval : Expr → A
-    eval (var f) = f
-    eval idₘ = E
-    eval (plus a b) = eval a ⊞ eval b
-    eval (times a b) = eval a ⋆ eval b
-    at : Expr → Fin n → Carrier
-    at (var f) = to f
-    at idₘ = I
-    at (plus a b) = at a ⊞ at b
-    at (times a b) = at a ⊙ at b
-    sound : ∀ a → to (eval a) ∼ at a
-    sound (var _) i = refl
-    sound idₘ = one
-    sound (plus a b) i = trans (add _ _ i) (+-cong (sound a i) (sound b i))
-    sound (times a b) i = trans (mul _ _ i) (*-cong (sound a i) (sound b i))
-    lift-law : ∀ a b → at a ∼ at b → eval a ∼ eval b
-    lift-law a b p = reflect _ _ (λ i → trans (sound a i) (trans (p i) (sym (sound b i))))
-    convolution-ring : CommutativeRing 0ℓ 0ℓ
-    convolution-ring = record { _≈_ = _∼_ ; _+_ = _⊞_ ; _*_ = _⋆_ ; -_ = neg ; 0# = O ; 1# = E
-      ; isCommutativeRing = record
-        { *-comm = λ f g → lift-law (times (var f) (var g)) (times (var g) (var f)) (λ i → *-comm _ _)
-        ; isRing = record { +-isAbelianGroup = additive
-          ; *-cong = λ {f} {g} {h} {j} p q → lift-law (times (var f) (var h)) (times (var g) (var j))
-              (λ i → *-cong (Linear.respects to-linear f g p i) (Linear.respects to-linear h j q i))
-          ; *-assoc = λ f g h → lift-law (times (times (var f) (var g)) (var h))
-              (times (var f) (times (var g) (var h))) (λ i → *-assoc _ _ _)
-          ; *-identity = (λ f → lift-law (times idₘ (var f)) (var f) (λ i → *-identityˡ _)) ,
-                         (λ f → lift-law (times (var f) idₘ) (var f) (λ i → *-identityʳ _))
-          ; distrib = (λ f g h → lift-law (times (var f) (plus (var g) (var h)))
-              (plus (times (var f) (var g)) (times (var f) (var h))) (λ i → distribˡ _ _ _)) ,
-              (λ f g h → lift-law (times (plus (var g) (var h)) (var f))
-              (plus (times (var g) (var f)) (times (var h) (var f))) (λ i → distribʳ _ _ _)) } } }
+    convolution-raw : RawRing 0ℓ 0ℓ
+    convolution-raw = record
+      { Carrier = A
+      ; _≈_ = _∼_
+      ; _+_ = _⊞_
+      ; _*_ = _⋆_
+      ; -_ = neg
+      ; 0# = O
+      ; 1# = E
+      }
 
     import Algebra.Properties.Ring ring as RP
     import Algebra.Morphism.Structures as Morph
-    module Hom = Morph.RingMorphisms (CommutativeRing.rawRing convolution-ring)
+    module Hom = Morph.RingMorphisms convolution-raw
       (CommutativeRing.rawRing pointwise)
 
     forward-zero : to O ∼ O
@@ -127,6 +83,17 @@ module Split {n} (H G : Group n) (B : Bicharacter H G) where
           { 1#-homo = one ; isNearSemiringHomomorphism = record { *-homo = mul
             ; +-isMonoidHomomorphism = record { ε-homo = forward-zero ; isMagmaHomomorphism = record
               { homo = add ; isRelHomomorphism = record { cong = λ {f} {g} → Linear.respects to-linear f g } } } } } } } }
+
+    import Algebra.Morphism.RingMonomorphism
+      (Hom.IsRingIsomorphism.isRingMonomorphism fourier-isomorphism)
+      as Mono
+
+    convolution-ring : CommutativeRing 0ℓ 0ℓ
+    convolution-ring = record
+      { RawRing convolution-raw
+      ; isCommutativeRing = Mono.isCommutativeRing
+          (CommutativeRing.isCommutativeRing pointwise)
+      }
 
     -- Multiplicative inverses can be checked, or constructed, frequency by frequency.
     inverse-coordinates : ∀ f g → (f ⋆ g) ∼ E → (to f ⊙ to g) ∼ I
