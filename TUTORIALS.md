@@ -10,3 +10,4 @@
 - [Character filters](docs/008_character-filters.md)
 - [Fourier algebra isomorphism](docs/009_fourier-algebra.md)
 - [Character completeness](docs/010_character-completeness.md)
+- [Fourier transforms on product groups](docs/011_product-transforms.md)
