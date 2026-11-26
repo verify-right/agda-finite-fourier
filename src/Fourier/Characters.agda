@@ -10,7 +10,7 @@ open import Data.Fin.Properties using (_≟_)
 open import Data.Product.Base using (Σ; _,_)
 open import Relation.Binary.PropositionalEquality as E using (_≢_)
 open import Relation.Nullary.Decidable using (yes; no)
-open import Fourier.Sums R
+open import Algebra.FiniteSums R
 open import Fourier.Reindex R
 open import Fourier.Enumeration
 import Algebra.Properties.Ring ring as RP
