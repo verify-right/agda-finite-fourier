@@ -88,3 +88,19 @@ References:
 
 References:
 - J. M. Pollard, [The Fast Fourier Transform in a Finite field](https://doi.org/10.1090/S0025-5718-1971-0301966-0), 1971.
+
+## Character orthogonality
+
+[Characters](src/Fourier/Characters.agda) of finite abelian groups
+with values in a commutative ring.
+
+| Agda theorem | Mathematical content | Meaning |
+|---|---|---|
+| `annihilates-sum` | $(\chi(t)-1)\sum_x\chi(x)=0$ | Character differences annihilate the character sum. |
+| `character-zero` | $\sum_x\chi(x)=0$ | The sum vanishes when the differences have trivial common annihilator. |
+| `gram` | $\sum_k U_x(k)V_y(k)=n\delta_{xy}$ | Orthogonality of reciprocal, separating character families. |
+
+References:
+- Keith Conrad, [Characters of Finite Abelian Groups](https://kconrad.math.uconn.edu/blurbs/grouptheory/charthy.pdf).
+- Mathlib, [Orthogonality.lean](https://github.com/leanprover-community/mathlib4/blob/0df444a360eaa60ab8c11dca51a86af692955474/Mathlib/Analysis/Fourier/FiniteAbelian/Orthogonality.lean): `AddChar.expect_eq_ite`.
+- Agda stdlib, [CommutativeMonoid.Sum](https://github.com/agda/agda-stdlib/blob/v2.4.1/src/Algebra/Properties/CommutativeMonoid/Sum.agda): `∑-permute`.
