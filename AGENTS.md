@@ -5,3 +5,7 @@
 5. reuse existing Agda libraries (connect to other work, DRY)
 6. human review everything; make docs human readable
 7. keep commits small; focused on one change
+8. Write documentation as a researcher would: state results, assumptions and references directly, without describing the development process
+9. Keep results, references, attribution and tutorials separate
+10. Do not repeat information across documents (DRY)
+11. Do not present aliases, reused proofs or reformulations of established mathematics as original contributions
