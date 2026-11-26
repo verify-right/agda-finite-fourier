@@ -74,3 +74,17 @@ References:
 - Keith Conrad, [Characters of Finite Abelian Groups](https://kconrad.math.uconn.edu/blurbs/grouptheory/charthy.pdf), Exercise 4.10(b), p. 18.
 - openai/math, [FourierIdentities.lean](https://github.com/openai/math/blob/4eaee87548250b2682affda7d05d947c05554bae/lean/OAI/Computability/FourierTransform/FourierIdentities.lean): `Spectral.freq_cyclic`.
 - [Convolution theorem](https://en.wikipedia.org/wiki/Convolution_theorem).
+
+## Number-theoretic transforms
+
+[Examples](src/Fourier/Examples.agda) computed modulo 17.
+
+| Agda theorem | Meaning |
+|---|---|
+| `four` | Four-point NTT. |
+| `eight` | Eight-point NTT. |
+| `product` | Polynomial multiplication using an NTT. |
+| `nonorthogonal-sum` | Counterexample to orthogonality modulo 15. |
+
+References:
+- J. M. Pollard, [The Fast Fourier Transform in a Finite field](https://doi.org/10.1090/S0025-5718-1971-0301966-0), 1971.
