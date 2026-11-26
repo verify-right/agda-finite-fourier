@@ -49,3 +49,28 @@ References:
 - Keith Conrad, [Characters of Finite Abelian Groups](https://kconrad.math.uconn.edu/blurbs/grouptheory/charthy.pdf). Character orthogonality and Fourier inversion.
 - openai/math [FourierIdentities.lean](https://github.com/openai/math/blob/4eaee87548250b2682affda7d05d947c05554bae/lean/OAI/Computability/FourierTransform/FourierIdentities.lean). Theorems `Spectral.orth`, `freq_back` and `freq_inv`.
 - Mathlib, [FiniteAbelian/Orthogonality.lean](https://github.com/leanprover-community/mathlib4/blob/0df444a360eaa60ab8c11dca51a86af692955474/Mathlib/Analysis/Fourier/FiniteAbelian/Orthogonality.lean). Theorem `AddChar.expect_eq_ite`.
+
+## Convolution and two-point Fourier transform
+
+[Convolution](src/Fourier/Convolution.agda) over commutative rings.
+The convolution theorem requires a multiplicative kernel, but
+neither orthogonality nor division.
+
+| Agda theorem | Mathematical content | Meaning |
+|---|---|---|
+| `convolution-hom` | $\widehat{f*g}=\hat f\cdot\hat g$ | Convolution becomes pointwise multiplication. |
+
+[Two-point Fourier transform](src/Fourier/Two.agda)
+on the cyclic group of order two.
+
+| Agda theorem | Mathematical content | Meaning |
+|---|---|---|
+| `orthogonality : OrthogonalPair 2 two K K` | $K^2=2I$ | The two character rows are orthogonal. |
+| `roundtrip : (f : Fin 2 → Carrier) (x : Fin 2) → transform K (transform K f) x ≈ two * f x` | $K(Kf)=2f$ | Applying the transform twice doubles the input. |
+| `inversion` | $2^{-1}K(Kf)=f$ | Exact recovery when 2 is invertible. |
+| `convolution-theorem` | $\widehat{f*g}=\hat f\cdot\hat g$ | XOR convolution becomes pointwise multiplication. |
+
+References:
+- Keith Conrad, [Characters of Finite Abelian Groups](https://kconrad.math.uconn.edu/blurbs/grouptheory/charthy.pdf), Exercise 4.10(b), p. 18.
+- openai/math, [FourierIdentities.lean](https://github.com/openai/math/blob/4eaee87548250b2682affda7d05d947c05554bae/lean/OAI/Computability/FourierTransform/FourierIdentities.lean): `Spectral.freq_cyclic`.
+- [Convolution theorem](https://en.wikipedia.org/wiki/Convolution_theorem).
