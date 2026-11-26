@@ -243,6 +243,8 @@ map is the identity.
 - [OpenAI FiniteFourier.lean] - primitive additive characters.
 - [OpenAI RayOrthogonality.lean] - quotient character filters.
 - [Alpöge–Claude ChBalance.lean] - arithmetic character sums.
+- Levent Alpöge (with Claude), Lean formalization of Riemman Hypothesis and Dirichlet GRH (2026), [Alpöge RH announcement]
+- [Alpöge–Claude ChBalance.lean].
 - [Compressed GRH LocalHomUnit.lean] - additive character orthogonality and matrix Fourier inversion.
 - [Mathlib Orthogonality.lean] - character orthogonality.
 - [Mathlib Duality.lean] - finite abelian group duality.
@@ -250,7 +252,8 @@ map is the identity.
 - [Mathlib AddCharacter.lean] - primitive additive characters.
 - [Mathlib ZMod.lean] - cyclic Fourier transforms.
 - [Isabelle NTT], Thomas Ammer and Katharina Kreuzer - verified number-theoretic transforms.
-- [When Agda met Vampire] - FFT formalization in Agda.
+- Artjoms Šinkarovs and Michael Rawson, [When Agda met Vampire], 2026 - FFT formalization in Agda.
+- Thomas Ammer and Katharina Kreuzer. [Number Theoretic Transform][Isabelle NTT]. Archive of Formal Proofs, 2022.
 
 [Conrad]: https://kconrad.math.uconn.edu/blurbs/grouptheory/charthy.pdf
 [Nicholson]: https://doi.org/10.1016/S0022-0000(71)80014-4
@@ -261,7 +264,8 @@ map is the identity.
 [OpenAI ChineseRemainder.lean]: https://github.com/openai/math/blob/4eaee87548250b2682affda7d05d947c05554bae/lean/OAI/Computability/FourierTransform/ChineseRemainder.lean
 [OpenAI FiniteFourier.lean]: https://github.com/openai/math/blob/4eaee87548250b2682affda7d05d947c05554bae/lean/OAI/NumberTheory/DirichletL/FiniteFourier.lean
 [OpenAI RayOrthogonality.lean]: https://github.com/openai/math/blob/4eaee87548250b2682affda7d05d947c05554bae/lean/OAI/NumberTheory/DirichletL/RayOrthogonality.lean
-[Alpöge–Claude ChBalance.lean]: https://github.com/CocoSgt/riemann-hypothesis-lean/blob/7cbf7a0c32fca1badf05931879a37c3f8a2b03b4/src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/ChBalance.lean
+[Alpöge RH announcement]: https://alpo.ge/remark.pdf
+[Alpöge–Claude ChBalance.lean]: https://github.com/leanprover-community/riemann-hypothesis/blob/original/src/Development/AutomorphicArithmetic/DedekindLFunctions/LandauTheorems/ChBalance.lean
 [Compressed GRH LocalHomUnit.lean]: https://github.com/lsernau/grh-lean/blob/72fead102f663d5c7a407964a13dc0cf9d977207/grh-compact/src/Lib/Weil/GaussSum/LocalHomUnit.lean
 [Mathlib Orthogonality.lean]: https://github.com/leanprover-community/mathlib4/blob/0df444a360eaa60ab8c11dca51a86af692955474/Mathlib/Analysis/Fourier/FiniteAbelian/Orthogonality.lean
 [Mathlib Duality.lean]: https://github.com/leanprover-community/mathlib4/blob/0df444a360eaa60ab8c11dca51a86af692955474/Mathlib/GroupTheory/FiniteAbelian/Duality.lean
