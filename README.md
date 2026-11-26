@@ -104,3 +104,20 @@ References:
 - Keith Conrad, [Characters of Finite Abelian Groups](https://kconrad.math.uconn.edu/blurbs/grouptheory/charthy.pdf).
 - Mathlib, [Orthogonality.lean](https://github.com/leanprover-community/mathlib4/blob/0df444a360eaa60ab8c11dca51a86af692955474/Mathlib/Analysis/Fourier/FiniteAbelian/Orthogonality.lean): `AddChar.expect_eq_ite`.
 - Agda stdlib, [CommutativeMonoid.Sum](https://github.com/agda/agda-stdlib/blob/v2.4.1/src/Algebra/Properties/CommutativeMonoid/Sum.agda): `∑-permute`.
+
+## Bicharacters and Fourier equivalence
+
+[Bicharacters](src/Fourier/Pairing.agda) and
+[Fourier duality](src/Fourier/Duality.agda).
+
+| Agda theorem | Mathematical content | Meaning |
+|---|---|---|
+| `left-gram` | $LK=nI$ | Column orthogonality. |
+| `right-gram` | $KL=nI$ | Row orthogonality. |
+| `matrix-linear` | Linearity | The transform preserves addition and scalar multiplication. |
+| `equivalence` | $K^{-1}=n^{-1}L$ | Mutually inverse linear transforms when both character families separate and the group order is invertible. |
+
+References:
+- [Bicharacter](https://en.wikipedia.org/wiki/Bicharacter).
+- Keith Conrad, [Characters of Finite Abelian Groups](https://kconrad.math.uconn.edu/blurbs/grouptheory/charthy.pdf).
+- Mathlib, [ZMod.lean](https://github.com/leanprover-community/mathlib4/blob/0df444a360eaa60ab8c11dca51a86af692955474/Mathlib/Analysis/Fourier/ZMod.lean).
