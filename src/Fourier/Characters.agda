@@ -56,7 +56,7 @@ product : ∀ {n} {G : Group n} → Character G → Character G → Character G
 value (product a b) i = value a i * value b i
 trivial-at-e (product a b) = trans (*-cong (trivial-at-e a) (trivial-at-e b)) (*-identityˡ 1#)
 mult (product a b) t i = trans (*-cong (mult a t i) (mult b t i))
-  (M.interchange (value a t) (value a i) (value b t) (value b i))
+  (M.medial (value a t) (value a i) (value b t) (value b i))
 
 opposite : ∀ {n} {G : Group n} → Character G → Character G
 opposite {G = G} c = record
