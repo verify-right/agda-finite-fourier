@@ -9,3 +9,4 @@
 - [Cyclic convolution](docs/007_group-convolution.md)
 - [Character filters](docs/008_character-filters.md)
 - [Fourier algebra isomorphism](docs/009_fourier-algebra.md)
+- [Character completeness](docs/010_character-completeness.md)
