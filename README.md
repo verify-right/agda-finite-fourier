@@ -294,6 +294,16 @@ Requires neither Fourier inversion nor division.
 See: OpenAI's CirculantHadamard/CyclicNorm.lean,
 `augmentation_sum_sq_of_norm`.
 
+# Weighted Fourier examples
+
+[WeightedExamples.agda](src/Fourier/WeightedExamples.agda)
+
+| Agda theorem | Meaning |
+|---|---|
+| `multipliers` | Compute weighted Fourier multipliers modulo 17. |
+| `all-signals` | Verify the selector for every four-element signal. |
+| `flat-row` | Verify the flat spectrum of a cyclic row. |
+
 ## References
 
 ### Mathematical literature
