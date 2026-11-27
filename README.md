@@ -226,6 +226,84 @@ The point filter in [Filters.agda](src/Fourier/Filters.agda)
 is the special case of `scaled-coset` where the quotient
 map is the identity.
 
+## Weighted finite sums
+
+[WeightedSums.agda](src/Algebra/WeightedSums.agda) over commutative rings.
+Here `moment w f` is the sum of pointwise products, and `count h` counts the occurrences in an enumeration.
+
+| Agda theorem | Mathematical content | Meaning |
+|---|---|---|
+| `two-level : ∀ {n} b s (h f : Fin n → Carrier) → moment (λ x → b + s * h x) f ≈ b * sum n f + s * moment h f` | Linearity in the weights | Separate a constant background from an excess. |
+| `integrate-count : ∀ {m n} (h : Fin m → Fin n) f → moment (count h) f ≈ sum m (λ i → f (h i))` | Summation against multiplicities | Repeated samples are counted correctly. |
+
+## Translation-invariant weights
+
+[InvariantWeight.agda](src/Fourier/InvariantWeight.agda)
+
+| Agda theorem | Meaning |
+|---|---|
+| `annihilates` | Weight-preserving translations constrain character sums. |
+| `coset-cancel` | Character separation forces weighted sums to vanish. |
+| `ordinary` | Ordinary character orthogonality is the constant-weight case. |
+
+See: [Conrad].
+
+## Counting measures
+
+[CountingMeasure.agda](src/Fourier/CountingMeasure.agda)
+
+| Agda theorem | Meaning |
+|---|---|
+| `analysis-count` | Fourier transform of a counting measure. |
+| `invert-count` | Recover multiplicities using Fourier inversion. |
+| `weighted-count` | Derive the existing counting theorem from inversion. |
+
+## Weighted character selectors
+
+[WeightedSelector.agda](src/Fourier/WeightedSelector.agda),
+[NormalizedSelector.agda](src/Fourier/NormalizedSelector.agda).
+
+| Agda theorem | Meaning |
+|---|---|
+| `principal`, `retained`, `discarded` | Compute the three character coefficients. |
+| `retained-ratio` | Compute the retained coefficient without division. |
+| `lemma6-1` | Fourier expansion of a normalized weighted average. |
+
+Inspired by Lemma 6.1 of *Dirichlet L-functions and the Critical Line*
+and the Alpöge–Claude Lean development.
+
+The finite algebra is generalized to commutative rings.
+The arithmetic and analytic estimates are outside the scope.
+
+## Autocorrelation and flat spectra
+
+[Autocorrelation.agda](src/Fourier/Autocorrelation.agda),
+[FlatSpectrum.agda](src/Fourier/FlatSpectrum.agda).
+
+| Agda theorem | Meaning |
+|---|---|
+| `autocorrelation` | Transform correlation into a product of spectra. |
+| `spectrum` | Compute the spectrum of a two-level correlation. |
+| `flat` | Impulse autocorrelation gives a flat spectrum. |
+| `row-sum-square` | The squared row sum equals the impulse height. |
+| `augmentation-square` | Integer circulant Hadamard row-sum constraint. |
+
+Reuses the weighted-sum identity from the character selector.
+Requires neither Fourier inversion nor division.
+
+See: OpenAI's CirculantHadamard/CyclicNorm.lean,
+`augmentation_sum_sq_of_norm`.
+
+# Weighted Fourier examples
+
+[WeightedExamples.agda](src/Fourier/WeightedExamples.agda)
+
+| Agda theorem | Meaning |
+|---|---|
+| `multipliers` | Compute weighted Fourier multipliers modulo 17. |
+| `all-signals` | Verify the selector for every four-element signal. |
+| `flat-row` | Verify the flat spectrum of a cyclic row. |
+
 ## References
 
 ### Mathematical literature
