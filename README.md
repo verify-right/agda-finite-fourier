@@ -236,6 +236,18 @@ Here `moment w f` is the sum of pointwise products, and `count h` counts the occ
 | `two-level : ∀ {n} b s (h f : Fin n → Carrier) → moment (λ x → b + s * h x) f ≈ b * sum n f + s * moment h f` | Linearity in the weights | Separate a constant background from an excess. |
 | `integrate-count : ∀ {m n} (h : Fin m → Fin n) f → moment (count h) f ≈ sum m (λ i → f (h i))` | Summation against multiplicities | Repeated samples are counted correctly. |
 
+## Translation-invariant weights
+
+[InvariantWeight.agda](src/Fourier/InvariantWeight.agda)
+
+| Agda theorem | Meaning |
+|---|---|
+| `annihilates` | Weight-preserving translations constrain character sums. |
+| `coset-cancel` | Character separation forces weighted sums to vanish. |
+| `ordinary` | Ordinary character orthogonality is the constant-weight case. |
+
+See: [Conrad].
+
 ## References
 
 ### Mathematical literature
