@@ -226,6 +226,16 @@ The point filter in [Filters.agda](src/Fourier/Filters.agda)
 is the special case of `scaled-coset` where the quotient
 map is the identity.
 
+## Weighted finite sums
+
+[WeightedSums.agda](src/Algebra/WeightedSums.agda) over commutative rings.
+Here `moment w f` is the sum of pointwise products, and `count h` counts the occurrences in an enumeration.
+
+| Agda theorem | Mathematical content | Meaning |
+|---|---|---|
+| `two-level : ∀ {n} b s (h f : Fin n → Carrier) → moment (λ x → b + s * h x) f ≈ b * sum n f + s * moment h f` | Linearity in the weights | Separate a constant background from an excess. |
+| `integrate-count : ∀ {m n} (h : Fin m → Fin n) f → moment (count h) f ≈ sum m (λ i → f (h i))` | Summation against multiplicities | Repeated samples are counted correctly. |
+
 ## References
 
 ### Mathematical literature
