@@ -258,6 +258,23 @@ See: [Conrad].
 | `invert-count` | Recover multiplicities using Fourier inversion. |
 | `weighted-count` | Derive the existing counting theorem from inversion. |
 
+## Weighted character selectors
+
+[WeightedSelector.agda](src/Fourier/WeightedSelector.agda),
+[NormalizedSelector.agda](src/Fourier/NormalizedSelector.agda).
+
+| Agda theorem | Meaning |
+|---|---|
+| `principal`, `retained`, `discarded` | Compute the three character coefficients. |
+| `retained-ratio` | Compute the retained coefficient without division. |
+| `lemma6-1` | Fourier expansion of a normalized weighted average. |
+
+Inspired by Lemma 6.1 of *Dirichlet L-functions and the Critical Line*
+and the Alpöge–Claude Lean development.
+
+The finite algebra is generalized to commutative rings.
+The arithmetic and analytic estimates are outside the scope.
+
 ## References
 
 ### Mathematical literature
