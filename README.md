@@ -248,6 +248,16 @@ Here `moment w f` is the sum of pointwise products, and `count h` counts the occ
 
 See: [Conrad].
 
+## Counting measures
+
+[CountingMeasure.agda](src/Fourier/CountingMeasure.agda)
+
+| Agda theorem | Meaning |
+|---|---|
+| `analysis-count` | Fourier transform of a counting measure. |
+| `invert-count` | Recover multiplicities using Fourier inversion. |
+| `weighted-count` | Derive the existing counting theorem from inversion. |
+
 ## References
 
 ### Mathematical literature
