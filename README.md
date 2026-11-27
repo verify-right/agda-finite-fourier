@@ -275,6 +275,25 @@ and the Alpöge–Claude Lean development.
 The finite algebra is generalized to commutative rings.
 The arithmetic and analytic estimates are outside the scope.
 
+## Autocorrelation and flat spectra
+
+[Autocorrelation.agda](src/Fourier/Autocorrelation.agda),
+[FlatSpectrum.agda](src/Fourier/FlatSpectrum.agda).
+
+| Agda theorem | Meaning |
+|---|---|
+| `autocorrelation` | Transform correlation into a product of spectra. |
+| `spectrum` | Compute the spectrum of a two-level correlation. |
+| `flat` | Impulse autocorrelation gives a flat spectrum. |
+| `row-sum-square` | The squared row sum equals the impulse height. |
+| `augmentation-square` | Integer circulant Hadamard row-sum constraint. |
+
+Reuses the weighted-sum identity from the character selector.
+Requires neither Fourier inversion nor division.
+
+See: OpenAI's CirculantHadamard/CyclicNorm.lean,
+`augmentation_sum_sq_of_norm`.
+
 ## References
 
 ### Mathematical literature
